@@ -5,16 +5,32 @@
   inputs,
   ...
 }:
-
+let buildInputs = with pkgs; [
+  cudaPackages.cudatoolkit
+];
+in
 {
   # https://devenv.sh/basics/
-  env.GREET = "devenv";
+  env.GREET = "Python Environment Personal Assistant";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git ];
+  packages = [ pkgs.git pkgs.portaudio ];
+
+  env = {
+    LD_LIBRARY_PATH = "${
+      with pkgs;
+      lib.makeLibraryPath buildInputs
+    }:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    CUDA_PATH = pkgs.cudaPackages.cudatoolkit;
+  };
 
   # https://devenv.sh/languages/
   # languages.rust.enable = true;
+  languages.python = {
+    enable = true;
+    venv.enable = true;
+    venv.requirements = ./requirements.txt;
+  };
 
   # https://devenv.sh/processes/
   # processes.cargo-watch.exec = "cargo-watch";
