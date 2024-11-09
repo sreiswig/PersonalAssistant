@@ -3,3 +3,5 @@ pyaudio
 torch
 torchvision
 torchaudio
+numpy
+accelerate

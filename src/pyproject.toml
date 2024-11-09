@@ -1,0 +1,8 @@
+[microphone]
+sample_rate = 44100
+channels = 1
+format = "paInt16"
+chunk_size = 1024
+silence_threshold = 1000
+[voicetotext]
+model = "openai/whisper-large-v3"

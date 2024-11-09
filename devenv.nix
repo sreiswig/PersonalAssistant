@@ -14,7 +14,7 @@ in
   env.GREET = "Python Environment Personal Assistant";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git pkgs.portaudio ];
+  packages = [ pkgs.git pkgs.portaudio pkgs.ffmpeg ];
 
   env = {
     LD_LIBRARY_PATH = "${
