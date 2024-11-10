@@ -1,8 +1,13 @@
 [microphone]
-sample_rate = 44100
+sample_rate = 16000
+output_sample_rate = 24000
 channels = 1
 format = "paInt16"
 chunk_size = 1024
 silence_threshold = 1000
 [voicetotext]
 model = "openai/whisper-large-v3"
+[texttotext]
+model = "google/gemma-2b"
+[texttovoice]
+model = "suno/bark"

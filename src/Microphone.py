@@ -5,6 +5,7 @@ import numpy as np
 class Microphone:
     def __init__(self, config):
         self.sample_rate = config["sample_rate"]
+        self.output_sample_rate = config["output_sample_rate"]
         self.channels = config["channels"]
         self.format = getattr(pyaudio, config["format"]) # returns the pyaudio format represented as a string in the pyproject toml
         self.chunk_size = config["chunk_size"]
@@ -23,17 +24,23 @@ class Microphone:
         print("Speak")
         while True:
             data = self.stream.read(self.chunk_size)
-            frames.append(data)
-
             audio_data = np.frombuffer(data, dtype=np.int16)
+            frames.append(audio_data)
             energy = np.sum(np.square(audio_data))
 
             if energy > self.silence_threshold:
                 is_speaking = True
             elif is_speaking and energy < self.silence_threshold:
                 break
+        
+        return np.hstack(frames)
 
-        return b''.join(frames)
+    def speak(self, input):
+        output_stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=self.output_sample_rate, output=True)
+        audio_data = (input.numpy() * 32767).astype(np.int16)
+        output_stream.write(audio_data.tobytes())
+        output_stream.stop_stream()
+        output_stream.close()
 
     def close(self):
         self.stream.stop_stream()
