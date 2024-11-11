@@ -28,6 +28,7 @@ in
   # languages.rust.enable = true;
   languages.python = {
     enable = true;
+    uv.enable = true;
     venv.enable = true;
     venv.requirements = ./requirements.txt;
   };

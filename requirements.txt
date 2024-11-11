@@ -6,3 +6,4 @@ torchaudio
 numpy
 accelerate
 scipy
+optimum
