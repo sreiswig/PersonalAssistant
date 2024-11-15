@@ -7,4 +7,7 @@ numpy
 accelerate
 scipy
 optimum
+google-cloud-texttospeech
+google-generativeai
 pyside6
+shiboken6
