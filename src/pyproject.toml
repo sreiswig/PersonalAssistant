@@ -11,3 +11,4 @@ model = "openai/whisper-large-v3"
 model = "google/gemma-2b"
 [texttovoice]
 model = "suno/bark"
+args = "v2/en_speaker_6"

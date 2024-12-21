@@ -19,4 +19,5 @@ class VoiceToTextModel:
                 )
 
     def run(self, audio):
+        print(f"Running Voice to Text on {self.device}")
         return self.pipe(audio)
