@@ -9,5 +9,5 @@ scipy
 optimum
 google-cloud-texttospeech
 google-generativeai
-pyside6
+pyside6==6.8.0
 shiboken6
