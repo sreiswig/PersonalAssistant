@@ -1,6 +1,7 @@
 from numpy._core.multiarray import dtype
 import pyaudio
 import numpy as np
+import time
 
 class Microphone:
     def __init__(self, config):
@@ -20,6 +21,7 @@ class Microphone:
     def listen(self):
         frames = []
         is_speaking = False
+        last_spoken_time = time.time()
         
         print("Speak")
         while True:
@@ -30,8 +32,10 @@ class Microphone:
 
             if energy > self.silence_threshold:
                 is_speaking = True
+                last_spoken_time = time.time()
             elif is_speaking and energy < self.silence_threshold:
-                break
+                if time.time() - last_spoken_time > 0.5:
+                    break
         
         return np.hstack(frames)
 
