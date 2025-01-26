@@ -7,11 +7,23 @@ class MyWidget(QtWidgets.QWidget):
         super().__init__()
 
         # Initialize the model
-        config = {"model": "gpt2"}  # Replace with your desired model
-        self.model = TextToTextModel(config)
+        self.available_models = ["google/gemma-2-2b"]
+        self.current_model_name = self.available_models[0]
+        self.model = TextToTextModel({"model": self.current_model_name})
 
         # Set up the layout
         self.main_layout = QtWidgets.QVBoxLayout(self)
+
+        # Model selector dropdown
+        self.model_selector = QtWidgets.QComboBox()
+        self.model_selector.addItems(self.available_models)
+        self.model_selector.currentTextChanged.connect(self.changeModel)
+        self.main_layout.addWidget(self.model_selector)
+
+        # Input Field
+        self.textEdit = QtWidgets.QTextEdit()
+        self.textEdit.setReadOnly(True)
+        self.main_layout.addWidget(self.textEdit)
 
         # Input field
         self.inputField = QtWidgets.QLineEdit()
@@ -24,11 +36,6 @@ class MyWidget(QtWidgets.QWidget):
         self.submitButton.clicked.connect(self.handleInput)
         self.main_layout.addWidget(self.submitButton)
 
-        # Output area
-        self.textEdit = QtWidgets.QTextEdit("Chat with the model:")
-        self.textEdit.setReadOnly(True)
-        self.main_layout.addWidget(self.textEdit)
-
     def handleInput(self):
         user_input = self.inputField.text().strip()
         if user_input:
@@ -36,6 +43,15 @@ class MyWidget(QtWidgets.QWidget):
             response = self.model.run(user_input)
             self.textEdit.append(f"Model: {response}")
             self.inputField.clear()
+
+    def changeModel(self, model_name):
+        self.textEdit.append(f"Changing model to: {model_name}")
+        self.current_model_name = model_name
+        try:
+            self.model = TextToTextModel({"model": self.current_model_name})
+            self.textEdit.append(f"Successfully switched to {model_name}")
+        except Exception as e:
+            self.textEdit.append(f"Error initializing model {model_name}")
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
