@@ -7,7 +7,7 @@ class MyWidget(QtWidgets.QWidget):
         super().__init__()
 
         # Initialize the model
-        self.available_models = ["google/gemma-2-2b"]
+        self.available_models = ["google/gemma-2-2b", "NovaSky-AI/Sky-T1-32B-Preview"]
         self.current_model_name = self.available_models[0]
         self.model = TextToTextModel({"model": self.current_model_name})
 

@@ -8,7 +8,7 @@ silence_threshold = 1000
 [voicetotext]
 model = "openai/whisper-large-v3"
 [texttotext]
-model = "google/gemma-2-2b"
+model = "NovaSky-AI/Sky-T1-32B-Preview"
 [texttovoice]
 model = "suno/bark"
 args = "v2/en_speaker_6"
