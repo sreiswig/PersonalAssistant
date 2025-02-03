@@ -21,7 +21,7 @@ def main():
         if results["text"].strip().lower() == "stop listening.":
             break
         # Call the server and wait for results
-        results = t2v.run(results)
+        results = t2v.run(results["text"])
         m.speak(results)
     m.close()
 
