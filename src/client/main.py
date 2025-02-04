@@ -19,7 +19,7 @@ def cli_arguments():
 
 def main():
     cli_arguments()
-    application = App()
+    App()
 
 if __name__ == "__main__":
     main()
