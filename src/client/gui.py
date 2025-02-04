@@ -1,6 +1,7 @@
 import sys
 from PySide6 import QtCore, QtWidgets
-from models import TextToTextModel
+from text_to_voice_model import TextToVoiceModel
+from voice_to_text_model import VoiceToTextModel
 
 class MyWidget(QtWidgets.QWidget):
     def __init__(self):
@@ -9,7 +10,6 @@ class MyWidget(QtWidgets.QWidget):
         # Initialize the model
         self.available_models = ["google/gemma-2-2b", "NovaSky-AI/Sky-T1-32B-Preview"]
         self.current_model_name = self.available_models[0]
-        self.model = TextToTextModel({"model": self.current_model_name})
 
         # Set up the layout
         self.main_layout = QtWidgets.QVBoxLayout(self)
@@ -40,25 +40,21 @@ class MyWidget(QtWidgets.QWidget):
         user_input = self.inputField.text().strip()
         if user_input:
             self.textEdit.append(f"You: {user_input}")
-            response = self.model.run(user_input)
-            self.textEdit.append(f"Model: {response}")
             self.inputField.clear()
 
     def changeModel(self, model_name):
         self.textEdit.append(f"Changing model to: {model_name}")
         self.current_model_name = model_name
         try:
-            self.model = TextToTextModel({"model": self.current_model_name})
             self.textEdit.append(f"Successfully switched to {model_name}")
         except Exception as e:
             self.textEdit.append(f"Error initializing model {model_name}")
 
-if __name__ == "__main__":
-    app = QtWidgets.QApplication([])
-
-    widget = MyWidget()
-    widget.resize(800, 600)
-    widget.show()
-
-    sys.exit(app.exec())
+class App():
+    def __init__(self):
+        app = QtWidgets.QApplication([])
+        widget = MyWidget()
+        widget.resize(800, 600)
+        widget.show()
+        sys.exit(app.exec())
 
