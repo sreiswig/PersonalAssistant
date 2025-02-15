@@ -14,3 +14,4 @@ shiboken6
 fastapi[standard]
 langgraph
 langsmith
+debugpy
