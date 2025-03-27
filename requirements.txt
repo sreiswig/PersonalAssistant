@@ -15,3 +15,4 @@ fastapi[standard]
 langgraph
 langsmith
 debugpy
+google-genai
