@@ -1,3 +1,5 @@
+import subprocess
+
 from typing import Union
 from contextlib import asynccontextmanager
 
