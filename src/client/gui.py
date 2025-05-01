@@ -1,4 +1,5 @@
 import sys
+import requests
 from PySide6 import QtCore, QtWidgets
 from text_to_voice_model import TextToVoiceModel
 from voice_to_text_model import VoiceToTextModel
@@ -36,6 +37,11 @@ class MyWidget(QtWidgets.QWidget):
         self.submitButton.clicked.connect(self.handleInput)
         self.main_layout.addWidget(self.submitButton)
 
+        # Test server connection button
+        self.testButton = QtWidgets.QPushButton("Test")
+        self.submitButton.clicked.connect(self.test)
+        self.main_layout.addWidget(self.testButton)
+
     def handleInput(self):
         user_input = self.inputField.text().strip()
         if user_input:
@@ -49,6 +55,10 @@ class MyWidget(QtWidgets.QWidget):
             self.textEdit.append(f"Successfully switched to {model_name}")
         except Exception as e:
             self.textEdit.append(f"Error initializing model {model_name}")
+
+    def test(self):
+        response = requests.get("http://127.0.0.1:8000/")
+        self.textEdit.append(f"Test: {response.json()}")
 
 class App():
     def __init__(self):

@@ -5,21 +5,33 @@
   inputs,
   ...
 }:
-let buildInputs = with pkgs; [
-  cudaPackages.cudatoolkit
-];
+let
+  buildInputs = with pkgs; [
+    cudaPackages.cudatoolkit
+  ];
 in
 {
   # https://devenv.sh/basics/
   env.GREET = "Python Environment Personal Assistant";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git pkgs.portaudio pkgs.ffmpeg pkgs.libGL pkgs.fontconfig pkgs.libxkbcommon pkgs.freetype pkgs.zstd pkgs.dbus pkgs.krb5 pkgs.kdePackages.kirigami ];
+  packages = [
+    pkgs.git
+    pkgs.portaudio
+    pkgs.ffmpeg
+    pkgs.libGL
+    pkgs.fontconfig
+    pkgs.libxkbcommon
+    pkgs.freetype
+    pkgs.zstd
+    pkgs.dbus
+    pkgs.krb5
+    pkgs.kdePackages.kirigami
+    pkgs.wayland
+  ];
 
   env = {
-    LD_LIBRARY_PATH = "${
-      lib.makeLibraryPath buildInputs
-    }:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
     CUDA_PATH = pkgs.cudaPackages.cudatoolkit;
   };
 
