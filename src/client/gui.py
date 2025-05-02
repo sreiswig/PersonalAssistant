@@ -14,6 +14,7 @@ class MyWidget(QtWidgets.QWidget):
 
         # Set up the layout
         self.main_layout = QtWidgets.QVBoxLayout(self)
+        self.input_layout = QtWidgets.QHBoxLayout()
 
         # Model selector dropdown
         self.model_selector = QtWidgets.QComboBox()
@@ -35,12 +36,17 @@ class MyWidget(QtWidgets.QWidget):
         # Submit button
         self.submitButton = QtWidgets.QPushButton("Send")
         self.submitButton.clicked.connect(self.handleInput)
-        self.main_layout.addWidget(self.submitButton)
+        self.input_layout.addWidget(self.submitButton)
 
         # Test server connection button
         self.testButton = QtWidgets.QPushButton("Test")
         self.testButton.clicked.connect(self.test)
-        self.main_layout.addWidget(self.testButton)
+        self.input_layout.addWidget(self.testButton)
+
+        # Add Horizontal layout input widget
+        self.input_widget = QtWidgets.QWidget()
+        self.input_widget.setLayout(self.input_layout)
+        self.main_layout.addWidget(self.input_widget)
 
     def handleInput(self):
         user_input = self.inputField.text().strip()
@@ -64,8 +70,8 @@ class MyWidget(QtWidgets.QWidget):
 class App():
     def __init__(self):
         app = QtWidgets.QApplication([])
-        widget = MyWidget()
-        widget.resize(800, 600)
-        widget.show()
+        window = MyWidget()
+        window.resize(800, 600)
+        window.show()
         sys.exit(app.exec())
 
