@@ -3,6 +3,7 @@ import requests
 from PySide6 import QtCore, QtWidgets
 from text_to_voice_model import TextToVoiceModel
 from voice_to_text_model import VoiceToTextModel
+from microphone import Microphone
 
 class MyWidget(QtWidgets.QWidget):
     def __init__(self):
@@ -65,7 +66,6 @@ class MyWidget(QtWidgets.QWidget):
     def test(self):
         response = requests.get("http://127.0.0.1:8000/")
         self.textEdit.append(f"Test: {response.json()}")
-        
 
 class App():
     def __init__(self):
