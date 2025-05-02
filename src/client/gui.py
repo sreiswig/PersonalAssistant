@@ -39,7 +39,7 @@ class MyWidget(QtWidgets.QWidget):
 
         # Test server connection button
         self.testButton = QtWidgets.QPushButton("Test")
-        self.submitButton.clicked.connect(self.test)
+        self.testButton.clicked.connect(self.test)
         self.main_layout.addWidget(self.testButton)
 
     def handleInput(self):
@@ -59,6 +59,7 @@ class MyWidget(QtWidgets.QWidget):
     def test(self):
         response = requests.get("http://127.0.0.1:8000/")
         self.textEdit.append(f"Test: {response.json()}")
+        
 
 class App():
     def __init__(self):
