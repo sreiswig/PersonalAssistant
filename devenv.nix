@@ -28,6 +28,7 @@ in
     pkgs.krb5
     pkgs.kdePackages.kirigami
     pkgs.wayland
+    pkgs.flutter
   ];
 
   env = {
