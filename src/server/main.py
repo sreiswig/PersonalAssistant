@@ -3,6 +3,7 @@ import subprocess
 from typing import Union
 from contextlib import asynccontextmanager
 
+import uvicorn
 from fastapi import FastAPI
 
 models = {}
@@ -23,3 +24,6 @@ def read_root():
 async def predict(x: float):
     result = models["text"](x)
     return {"result": result}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="169.254.235.6", port=8000)
