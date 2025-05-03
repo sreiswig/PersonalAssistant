@@ -44,6 +44,11 @@ class MyWidget(QtWidgets.QWidget):
         self.testButton.clicked.connect(self.test)
         self.input_layout.addWidget(self.testButton)
 
+        # Voice Mode Button
+        self.voiceButton = QtWidgets.QPushButton("\N{MICROPHONE}")
+        self.voiceButton.clicked.connect(self.test)
+        self.input_layout.addWidget(self.voiceButton)
+
         # Add Horizontal layout input widget
         self.input_widget = QtWidgets.QWidget()
         self.input_widget.setLayout(self.input_layout)
@@ -56,6 +61,7 @@ class MyWidget(QtWidgets.QWidget):
             self.inputField.clear()
 
     def changeModel(self, model_name):
+        self.textEdit.clear()
         self.textEdit.append(f"Changing model to: {model_name}")
         self.current_model_name = model_name
         try:
