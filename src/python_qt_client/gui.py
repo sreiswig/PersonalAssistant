@@ -70,7 +70,7 @@ class MyWidget(QtWidgets.QWidget):
             self.textEdit.append(f"Error initializing model {model_name}")
 
     def test(self):
-        response = requests.get("http://127.0.0.1:8000/")
+        response = requests.get("http://169.254.235.6:8000/")
         self.textEdit.append(f"Test: {response.json()}")
 
 class App():
