@@ -19,7 +19,8 @@ def cli_arguments():
 
 def main():
     cli_arguments()
-    App()
+    config = get_config()
+    App(config)
 
 if __name__ == "__main__":
     main()

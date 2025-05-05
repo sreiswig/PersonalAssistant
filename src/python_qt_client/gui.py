@@ -7,7 +7,7 @@ from voice_to_text_model import VoiceToTextModel
 from microphone import Microphone
 
 class MyWidget(QtWidgets.QWidget):
-    def __init__(self):
+    def __init__(self, config):
         super().__init__()
 
         # Initialize the model
@@ -78,9 +78,9 @@ class MyWidget(QtWidgets.QWidget):
             self.textEdit.append(f"Connection failed")
 
 class App():
-    def __init__(self):
+    def __init__(self, config):
         app = QtWidgets.QApplication([])
-        window = MyWidget()
+        window = MyWidget(config)
         window.resize(800, 600)
         window.show()
         sys.exit(app.exec())
