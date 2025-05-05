@@ -70,8 +70,11 @@ class MyWidget(QtWidgets.QWidget):
             self.textEdit.append(f"Error initializing model {model_name}")
 
     def test(self):
-        response = requests.get("http://169.254.235.6:8000/")
-        self.textEdit.append(f"Test: {response.json()}")
+        try:
+            response = requests.get("http://169.254.235.6:8000/")
+            self.textEdit.append(f"Test: {response.json()}")
+        except Exception as e:
+            self.textEdit.append(f"Connection failed")
 
 class App():
     def __init__(self):
