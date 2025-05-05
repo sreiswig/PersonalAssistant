@@ -10,7 +10,12 @@ class MyWidget(QtWidgets.QWidget):
     def __init__(self, config):
         super().__init__()
 
-        # Initialize the model
+        # Init microphone and audio
+        self.microphone = Microphone(config["microphone"])
+        self.voiceToText = VoiceToTextModel(config["voicetotext"])
+        self.textToVoice = TextToVoiceModel(config["texttovoice"])
+
+        # Initialize the text model on the server or api call
         self.available_models = ["google/gemma-2-2b", "NovaSky-AI/Sky-T1-32B-Preview"]
         self.current_model_name = self.available_models[0]
 
@@ -47,7 +52,7 @@ class MyWidget(QtWidgets.QWidget):
 
         # Voice Mode Button
         self.voiceButton = QtWidgets.QPushButton("\N{MICROPHONE}")
-        self.voiceButton.clicked.connect(self.test)
+        self.voiceButton.clicked.connect(self.speak)
         self.input_layout.addWidget(self.voiceButton)
 
         # Add Horizontal layout input widget
@@ -69,6 +74,11 @@ class MyWidget(QtWidgets.QWidget):
             self.textEdit.append(f"Successfully switched to {model_name}")
         except Exception as e:
             self.textEdit.append(f"Error initializing model {model_name}")
+
+    def speak(self):
+        audio = self.microphone.listen()
+        text = self.voiceToText.run(audio)
+        self.textEdit.append(text)
 
     def test(self):
         try:
