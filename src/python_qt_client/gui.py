@@ -1,4 +1,5 @@
 import sys
+from typing import assert_type
 import requests
 from PySide6 import QtCore, QtWidgets
 import microphone
@@ -78,7 +79,10 @@ class MyWidget(QtWidgets.QWidget):
     def speak(self):
         audio = self.microphone.listen()
         text = self.voiceToText.run(audio)
-        self.textEdit.append(text)
+        try:
+            self.textEdit.append(text)
+        except Exception as e:
+            self.textEdit.append("An Error Occured during speak call")
 
     def test(self):
         try:

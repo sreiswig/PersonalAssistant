@@ -20,4 +20,9 @@ class VoiceToTextModel:
 
     def run(self, audio):
         print(f"Running Voice to Text on {self.device}")
-        return self.pipe(audio)["text"]
+        results = self.pipe(audio)
+        try:
+            text = results["text"]
+            return text
+        except Exception as e:
+            return "An error occured in the TTS Pipeline"
