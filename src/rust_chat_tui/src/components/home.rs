@@ -42,7 +42,10 @@ impl Component for Home {
     }
 
     fn draw(&mut self, frame: &mut Frame, area: Rect) -> Result<()> {
-        frame.render_widget(Paragraph::new("hello world"), area);
+        Layout::default()
+            .direction(Direction::Horizontal)
+            .constraints([Constraint::Percentage(100)]);
+        frame.render_widget(Paragraph::new("Test"), area);
         Ok(())
     }
 }
