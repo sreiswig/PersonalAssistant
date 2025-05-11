@@ -20,7 +20,7 @@ app = FastAPI(lifespan=lifespan)
 def read_root():
     return {"Hello", "AIServer"}
 
-@app.get("/predict")
+@app.post("/predict")
 async def predict(x: str):
     result = models["text"](x)
     return {"result": result}
