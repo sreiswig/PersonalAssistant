@@ -1,4 +1,6 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 class AbstractLLM(ABC):
-    pass
+    @abstractmethod
+    def predict(self, text: str) -> str:
+        pass

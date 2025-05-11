@@ -1,5 +1,15 @@
 from google import genai
 
-class GoogleAIStudioModels():
-    self.client = genai.Client(api_key="")
+from models.abstract_llm import AbstractLLM
 
+class GoogleAIStudioModels(AbstractLLM):
+    def __init__(self, config):
+        self.client = genai.Client(api_key="")
+        self.model = config["model"]
+
+    def predict(self, text: str):
+        result = self.client.models.generate_content(
+            model = self.model,
+            contents = text
+        )
+        return result

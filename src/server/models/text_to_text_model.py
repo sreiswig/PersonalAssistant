@@ -1,4 +1,4 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import pipeline
 
 class TextToTextModel:
     def __init__(self, config):
