@@ -12,7 +12,7 @@ def get_config():
 def cli_arguments():
     parser = argparse.ArgumentParser(
             prog="PersonalAssistantClient",
-            description="The client for my personal assistant AI. Specifically not a web app",
+            description="A client for my personal assistant.",
             epilog="Do great things"
             )
     parser.add_argument('-g', action='store_true')
