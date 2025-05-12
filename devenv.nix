@@ -20,6 +20,9 @@ in
     pkgs.portaudio
     pkgs.ffmpeg
     pkgs.libGL
+    pkgs.zlib
+    pkgs.glib
+    pkgs.xorg.libX11
     pkgs.fontconfig
     pkgs.libxkbcommon
     pkgs.freetype
