@@ -1,18 +1,25 @@
 import subprocess
+import tomllib
 
 from typing import Union
 from contextlib import asynccontextmanager
+from models.google_ai_studio_models import GoogleAIStudioModels
+from models.text_to_text_model import TextToTextModel
 
 import uvicorn
 from fastapi import FastAPI
 
-models = {}
+model = {}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    models["text"] = None
+    config = ""
+    with open("pyproject.toml", "rb") as f:
+        config = tomllib.load(f)
+    
+    model["text"] = config["text_to_text"]
     yield
-    models.clear()
+    model.clear()
 
 app = FastAPI(lifespan=lifespan)
 
@@ -22,5 +29,5 @@ def read_root():
 
 @app.post("/predict")
 async def predict(x: str):
-    result = models["text"](x)
+    result = model["text"](x)
     return {"result": result}

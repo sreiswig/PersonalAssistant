@@ -7,9 +7,9 @@ class GoogleAIStudioModels(AbstractLLM):
         self.client = genai.Client(api_key="")
         self.model = config["model"]
 
-    def predict(self, text: str):
+    def predict(self, text: str) -> str | None:
         result = self.client.models.generate_content(
             model = self.model,
             contents = text
         )
-        return result
+        return result.text
