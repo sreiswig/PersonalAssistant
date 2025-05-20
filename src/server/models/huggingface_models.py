@@ -1,6 +1,6 @@
 from transformers import pipeline
 
-class TextToTextModel:
+class HuggingFaceModel:
     def __init__(self, config):
         self.model_id = config["model"]
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_id)

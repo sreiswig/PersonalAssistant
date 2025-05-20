@@ -3,8 +3,8 @@ import tomllib
 
 from typing import Union
 from contextlib import asynccontextmanager
-from models.google_ai_studio_models import GoogleAIStudioModels
-from models.text_to_text_model import TextToTextModel
+from models.google_ai_studio_models import GoogleAIStudioModel
+from models.huggingface_models import HuggingFaceModel
 
 import uvicorn
 from fastapi import FastAPI
@@ -19,7 +19,9 @@ async def lifespan(app: FastAPI):
     # Should start thinking about logging or something
     match config["distributor"]:
         case "google":
-            print("google")
+            model["text"] = GoogleAIStudioModel(config)
+        case "huggingface":
+            model["text"] = HuggingFaceModel(config)
         case _:
             print("default config")
 
