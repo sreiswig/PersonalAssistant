@@ -16,7 +16,13 @@ async def lifespan(app: FastAPI):
     config = ""
     with open("pyproject.toml", "rb") as f:
         config = tomllib.load(f)
-    
+    # Should start thinking about logging or something
+    match config["distributor"]:
+        case "google":
+            print("google")
+        case _:
+            print("default config")
+
     model["text"] = config["text_to_text"]
     yield
     model.clear()
