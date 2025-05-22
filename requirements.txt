@@ -18,3 +18,4 @@ debugpy
 google-genai
 grpcio
 grpcio-tools
+pydantic-settings
