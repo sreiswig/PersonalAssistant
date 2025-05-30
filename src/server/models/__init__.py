@@ -1,2 +1,2 @@
-from .huggingface_models import TextToTextModel
+from .huggingface_models import HuggingFaceModel
 from .google_ai_studio_models import GoogleAIStudioModel
