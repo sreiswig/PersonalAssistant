@@ -10,10 +10,13 @@ from langgraph.prebuilt import ToolNode, tools_condition
 
 from langgraph.types import Command, interrupt
 
+
 class State(TypedDict):
     messages: Annotated[list, add_messages]
 
+
 graph_builder = StateGraph(State)
+
 
 @tool
 def human_assistance(query: str) -> str:
@@ -21,15 +24,18 @@ def human_assistance(query: str) -> str:
     human_response = interrupt({"query": query})
     return human_response["data"]
 
+
 tool = TavilySearchResults(max_results=2)
 tools = [tool, human_assistance]
 llm = None
 llm_with_tools = llm.bind_tools(tools)
 
+
 def chatbot(state: State):
     message = llm_with_tools.invoke(state["messages"])
     assert len(message.tool_calls) <= 1
     return {"messages": [message]}
+
 
 graph_builder.add_node("chatbot", chatbot)
 
@@ -37,8 +43,8 @@ tool_node = ToolNode(tools=tools)
 graph_builder.add_node("tools", tool_node)
 
 graph_builder.add_conditional_edges(
-        "chatbot",
-        tools_condition,
+    "chatbot",
+    tools_condition,
 )
 graph_builder.add_edge("tools", "chatbot")
 graph_builder.add_edge(START, "chatbot")
