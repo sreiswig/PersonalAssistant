@@ -1,26 +1,30 @@
 import tomllib
 import argparse
 from microphone import Microphone
-from voice_to_text_model import VoiceToTextModel 
+from voice_to_text_model import VoiceToTextModel
 from text_to_voice_model import TextToVoiceModel
 from gui import App
+
 
 def get_config():
     with open("pyproject.toml", "rb") as f:
         return tomllib.load(f)
 
+
 def cli_arguments():
     parser = argparse.ArgumentParser(
-            prog="PersonalAssistantClient",
-            description="A client for my personal assistant.",
-            epilog="Do great things"
-            )
-    parser.add_argument('-g', action='store_true')
+        prog="PersonalAssistantClient",
+        description="A client for my personal assistant.",
+        epilog="Do great things",
+    )
+    parser.add_argument("-g", action="store_true")
+
 
 def main():
     cli_arguments()
     config = get_config()
     App(config)
+
 
 if __name__ == "__main__":
     main()
