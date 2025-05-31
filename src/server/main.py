@@ -1,7 +1,5 @@
-import subprocess
 import tomllib
 
-from typing import Union
 from contextlib import asynccontextmanager
 from models.google_ai_studio_models import GoogleAIStudioModel
 from models.huggingface_models import HuggingFaceModel
