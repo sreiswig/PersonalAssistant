@@ -3,6 +3,7 @@ import tomllib
 from contextlib import asynccontextmanager
 from .models import GoogleAIStudioModel
 from .models import HuggingFaceModel
+from .config import ServerSettings
 
 import uvicorn
 from fastapi import FastAPI
@@ -12,19 +13,9 @@ model = {}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    config = ""
-    with open("pyproject.toml", "rb") as f:
-        config = tomllib.load(f)
+    config = ServerSettings()
     # Should start thinking about logging or something
-    match config["distributor"]:
-        case "google":
-            model["text"] = GoogleAIStudioModel(config)
-        case "huggingface":
-            model["text"] = HuggingFaceModel(config)
-        case _:
-            print("default config")
 
-    model["text"] = config["text_to_text"]
     yield
     model.clear()
 

@@ -1,14 +1,13 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import BaseModel
+import tomllib
 import os
 
-
-class LLMConfig(BaseSettings):
-    """LLM model Config"""
-
-    model_name: str = "distilbert/distilbert-base-uncased"
+class LLMConfig(BaseModel):
+    model_name: str = "distilbert-base-uncased"
     quantization: bool = False
     device: str = "cpu"
 
+class ServerSettings(BaseSettings):
+    llm_config: LLMConfig = LLMConfig()
 
-def get_llm_config() -> LLMConfig:
-    return LLMConfig()
