@@ -1,5 +1,5 @@
 from transformers import pipeline
-
+from .abstract_llm import AbstractLLM
 
 class HuggingFaceModel:
     def __init__(self, config):

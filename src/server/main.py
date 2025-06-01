@@ -1,8 +1,8 @@
 import tomllib
 
 from contextlib import asynccontextmanager
-from models.google_ai_studio_models import GoogleAIStudioModel
-from models.huggingface_models import HuggingFaceModel
+from .models import GoogleAIStudioModel
+from .models import HuggingFaceModel
 
 import uvicorn
 from fastapi import FastAPI
@@ -34,7 +34,7 @@ app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 def read_root():
-    return {"Hello", "AIServer"}
+    return {"Hello AIServer"}
 
 
 @app.post("/predict")
