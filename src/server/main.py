@@ -15,9 +15,9 @@ model = {}
 async def lifespan(app: FastAPI):
     config = ServerSettings()
     # Should start thinking about logging or something
-
+    model = HuggingFaceModel(config.llm_config.model_name)
     yield
-    model.clear()
+    
 
 
 app = FastAPI(lifespan=lifespan)
