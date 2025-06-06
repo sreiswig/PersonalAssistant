@@ -5,7 +5,7 @@ from typing import List
 from .models import GoogleAIStudioModel
 from .models import HuggingFaceModel
 from .config import ServerSettings
-from .models import ModelMenu
+from .models import ModelRegistry
 
 import uvicorn
 from fastapi import FastAPI
@@ -30,7 +30,7 @@ app = FastAPI(lifespan=lifespan)
 def read_root():
     return {"Hello AIServer"}
 
-@app.get("/model_menu", response_model=ModelMenu)
+@app.get("/model_menu")
 async def get_available_models():
     return available_models
 
