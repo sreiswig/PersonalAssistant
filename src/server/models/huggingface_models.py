@@ -1,9 +1,9 @@
-from transformers import pipeline
-from .abstract_llm import AbstractLLM
+from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
+from .abstract_llm import AbstractLLM 
 
 class HuggingFaceModel:
     def __init__(self, config):
-        self.model_id = config["model"]
+        self.model_id = config.model_name
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_id)
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_id, device_map="auto"

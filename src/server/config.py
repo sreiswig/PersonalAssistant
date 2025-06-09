@@ -4,7 +4,7 @@ import tomllib
 import os
 
 class LLMConfig(BaseModel):
-    model_name: str = "distilbert-base-uncased"
+    model_name: str = "openai-community/gpt2"
     quantization: bool = False
     device: str = "cpu"
 
