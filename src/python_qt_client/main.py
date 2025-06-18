@@ -1,4 +1,5 @@
 import tomllib
+import torch
 import argparse
 from microphone import Microphone
 from voice_to_text_model import VoiceToTextModel
@@ -23,7 +24,12 @@ def cli_arguments():
 def main():
     cli_arguments()
     config = get_config()
-    App(config)
+    voiceToText = None
+    textToVoice = None
+    if (torch.cuda.is_available()):
+        voiceToText = VoiceToTextModel(config["voicetotext"])
+        textToVoice = TextToVoiceModel(config["texttovoice"])
+    App(config, voiceToText, textToVoice)
 
 
 if __name__ == "__main__":

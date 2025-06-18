@@ -9,13 +9,13 @@ from microphone import Microphone
 
 
 class MyWidget(QtWidgets.QWidget):
-    def __init__(self, config):
+    def __init__(self, config, voiceToText, textToVoice):
         super().__init__()
 
         # Init microphone and audio
         self.microphone = Microphone(config["microphone"])
-        self.voiceToText = VoiceToTextModel(config["voicetotext"])
-        self.textToVoice = TextToVoiceModel(config["texttovoice"])
+        self.voiceToText = voiceToText
+        self.textToVoice = textToVoice
 
         # Initialize the text model on the server or api call
         self.available_models = ["google/gemma-2-2b", "NovaSky-AI/Sky-T1-32B-Preview"]
@@ -56,6 +56,8 @@ class MyWidget(QtWidgets.QWidget):
         self.voiceButton = QtWidgets.QPushButton("\N{MICROPHONE}")
         self.voiceButton.clicked.connect(self.speak)
         self.input_layout.addWidget(self.voiceButton)
+        if (self.voiceToText is None):
+            self.voiceButton.setEnabled(False)
 
         # Add Horizontal layout input widget
         self.input_widget = QtWidgets.QWidget()
@@ -94,9 +96,9 @@ class MyWidget(QtWidgets.QWidget):
 
 
 class App:
-    def __init__(self, config):
+    def __init__(self, config, voiceToText, textToVoice):
         app = QtWidgets.QApplication([])
-        window = MyWidget(config)
+        window = MyWidget(config, voiceToText, textToVoice)
         window.resize(1200, 1200)
         window.show()
         sys.exit(app.exec())
