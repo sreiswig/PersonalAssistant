@@ -97,6 +97,6 @@ class App:
     def __init__(self, config):
         app = QtWidgets.QApplication([])
         window = MyWidget(config)
-        window.resize(800, 600)
+        window.resize(1200, 1200)
         window.show()
         sys.exit(app.exec())
