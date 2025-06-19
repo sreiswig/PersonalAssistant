@@ -54,6 +54,7 @@ class MyWidget(QtWidgets.QWidget):
         self.voiceButton.clicked.connect(self.speak)
         self.input_layout.addWidget(self.voiceButton)
         if (self.voiceToText is None):
+            self.textEdit.append("GPU not found on device, speech capabilities will not be enabled")
             self.voiceButton.setEnabled(False)
 
         # Add Horizontal layout input widget
