@@ -2,9 +2,6 @@ import sys
 from typing import assert_type
 import requests
 from PySide6 import QtCore, QtWidgets
-import microphone
-from text_to_voice_model import TextToVoiceModel
-from voice_to_text_model import VoiceToTextModel
 from microphone import Microphone
 
 
