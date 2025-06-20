@@ -10,3 +10,5 @@ model = "openai/whisper-large-v3"
 [texttovoice]
 model = "suno/bark"
 args = "v2/en_speaker_6"
+[server]
+ip = "http://169.254.235.6:8000/"

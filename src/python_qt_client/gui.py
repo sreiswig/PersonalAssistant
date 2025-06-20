@@ -8,6 +8,8 @@ from microphone import Microphone
 class MyWidget(QtWidgets.QWidget):
     def __init__(self, config, voiceToText, textToVoice):
         super().__init__()
+        # Init configs
+        self.server = config["server"]
 
         # Init microphone and audio
         self.microphone = Microphone(config["microphone"])
@@ -87,7 +89,7 @@ class MyWidget(QtWidgets.QWidget):
 
     def test(self):
         try:
-            response = requests.get("http://169.254.235.6:8000/")
+            response = requests.get(self.server["ip"])
             self.textEdit.append(f"Test: {response.json()}")
         except Exception as e:
             self.textEdit.append(f"Connection failed")
