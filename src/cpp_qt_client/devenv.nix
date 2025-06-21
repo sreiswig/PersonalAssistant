@@ -8,7 +8,7 @@
   packages = [ pkgs.git ];
 
   # https://devenv.sh/languages/
-  languages.cpp.enable = true;
+  languages.cplusplus.enable = true;
 
   # https://devenv.sh/processes/
   # processes.cargo-watch.exec = "cargo-watch";
