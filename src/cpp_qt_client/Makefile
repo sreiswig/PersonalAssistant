@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_QML_LIB -DQT_QMLINTEGRATION_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_QMLINTEGRATION_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I. -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui -I/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/include -I/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/include/QtQml -I/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/include/QtQmlIntegration -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtNetwork -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore -I. -I/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/linux-g++
+INCPATH       = -I. -I. -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui -I/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/include -I/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/include/QtQml -I/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/include/QtQmlIntegration -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtNetwork -I/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore -I. -I/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/linux-g++
 QMAKE         = /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = demo1.0.0
 DISTDIR = /home/sam/Documents/python_programming/PersonalAssistant/src/cpp_qt_client/.tmp/demo1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib -Wl,-rpath-link,/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib
-LIBS          = $(SUBLIBS) /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Gui.so /nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/lib/libQt6Qml.so -lQt6Network /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Network.so -lQt6Core /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Core.so -lpthread -lGLX -lOpenGL   
+LIBS          = $(SUBLIBS) /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Widgets.so -lQt6Gui /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Gui.so /nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/lib/libQt6Qml.so -lQt6Network /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Network.so -lQt6Core /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Core.so -lpthread -lGLX -lOpenGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -419,6 +419,7 @@ DIST          = /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspec
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/resources.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/moc.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/unix/opengl.prf \
+		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/uic.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/unix/thread.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/qmake_use.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/file_copies.prf \
@@ -803,6 +804,7 @@ Makefile: cpp_qt_client.pro /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/resources.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/moc.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/unix/opengl.prf \
+		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/uic.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/unix/thread.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/qmake_use.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/file_copies.prf \
@@ -811,6 +813,7 @@ Makefile: cpp_qt_client.pro /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/yacc.prf \
 		/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/lex.prf \
 		cpp_qt_client.pro \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Widgets.prl \
 		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Gui.prl \
 		/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/lib/libQt6Qml.prl \
 		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Network.prl \
@@ -1181,6 +1184,7 @@ Makefile: cpp_qt_client.pro /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/resources.prf:
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/moc.prf:
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/unix/opengl.prf:
+/nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/uic.prf:
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/unix/thread.prf:
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/qmake_use.prf:
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/file_copies.prf:
@@ -1189,6 +1193,7 @@ Makefile: cpp_qt_client.pro /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/yacc.prf:
 /nix/store/6bnkmj49nf5g9drjak8gp69hggdf21nk-qt-full-6.9.0/mkspecs/features/lex.prf:
 cpp_qt_client.pro:
+/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Widgets.prl:
 /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Gui.prl:
 /nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/lib/libQt6Qml.prl:
 /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/lib/libQt6Network.prl:
@@ -1246,6 +1251,8 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
+compiler_uic_make_all:
+compiler_uic_clean:
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -1256,7 +1263,423 @@ compiler_clean: compiler_moc_predefs_clean
 
 ####### Compile
 
-hello.o: hello.cpp 
+hello.o: hello.cpp /nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/QtGui \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/QtGuiDepends \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QtCore \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QtCoreDepends \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qglobal.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtcoreglobal.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtversionchecks.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtconfiginclude.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qconfig.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtcore-config.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtconfigmacros.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtdeprecationdefinitions.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcompilerdetection.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qprocessordetection.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsystemdetection.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtcoreexports.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtdeprecationmarkers.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtclasshelpermacros.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtpreprocessorsupport.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qassert.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtnoop.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtypes.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtversion.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtypeinfo.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcontainerfwd.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsysinfo.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlogging.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qflags.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcompare_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qatomic.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbasicatomic.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qatomic_cxx11.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qgenericatomic.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qyieldcpu.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qconstructormacros.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdarwinhelpers.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qexceptionhandling.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qforeach.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qttypetraits.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfunctionpointer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qglobalstatic.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmalloc.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qminmax.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qnumeric.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qoverload.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qswap.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtenvironmentvariables.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtresource.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qttranslation.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qversiontagging.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q17memory.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20algorithm.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20functional.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20chrono.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20iterator.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20map.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20memory.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20type_traits.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20utility.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q20vector.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q23functional.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q23utility.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/q26numeric.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qabstractanimation.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qobject.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qobjectdefs.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qnamespace.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcompare.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstdlibdetection.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcomparehelpers.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtmetamacros.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qobjectdefs_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfunctionaltools_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstring.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qchar.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringview.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbytearray.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qrefcount.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qarraydata.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpair.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qarraydatapointer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qarraydataops.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcontainertools_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qxptype_traits.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbytearrayalgorithms.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbytearrayview.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringfwd.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringliteral.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringalgorithms.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlatin1stringview.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qanystringview.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qutf8stringview.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringtokenizer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringbuilder.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringconverter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringconverter_base.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlist.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qhashfunctions.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qiterator.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbytearraylist.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringlist.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qalgorithms.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringmatcher.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcoreevent.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbasictimer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qabstracteventdispatcher.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qeventloop.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdeadlinetimer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qelapsedtimer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmetatype.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdatastream.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qscopedpointer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qiodevicebase.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfloat16.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmath.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtformat_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qiterable.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmetacontainer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcontainerinfo.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtaggedpointer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qscopeguard.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qobject_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbindingstorage.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qabstractitemmodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qhash.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qvariant.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdebug.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtextstream.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcontiguouscache.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsharedpointer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qshareddata.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsharedpointer_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmap.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qshareddata_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qset.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qvarlengtharray.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qabstractnativeeventfilter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qabstractproxymodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qanimationgroup.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qapplicationstatic.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QMutex \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmutex.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtsan_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcoreapplication.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qnativeinterface.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcoreapplication_platform.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfuture.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfutureinterface.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qresultstore.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfuture_impl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qthreadpool.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qthread.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qrunnable.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qexception.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpromise.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qassociativeiterable.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qatomicscopedvaluerollback.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbitarray.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbuffer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qiodevice.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qspan.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qbytearraymatcher.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcache.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcalendar.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlocale.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcborarray.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcborvalue.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcborcommon.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdatetime.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qregularexpression.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qurl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/quuid.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qendian.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcbormap.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcborstream.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcborstreamreader.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcborstreamwriter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qchronotimer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qproperty.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpropertyprivate.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtimer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcollator.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcommandlineoption.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcommandlineparser.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qconcatenatetablesproxymodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qcryptographichash.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdir.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdirlisting.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfiledevice.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfile.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfileinfo.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtimezone.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qdiriterator.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qeasingcurve.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfactoryinterface.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfileselector.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QObject \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QStringList \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfilesystemwatcher.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfuturesynchronizer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qfuturewatcher.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qidentityproxymodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qitemselectionmodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qjsonarray.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qjsonvalue.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qjsondocument.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qjsonparseerror.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qjsonobject.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlatin1stringmatcher.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlibrary.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlibraryinfo.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qversionnumber.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtyperevision.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qline.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpoint.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qlockfile.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qloggingcategory.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmargins.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmessageauthenticationcode.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmetaobject.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmimedata.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmimedatabase.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qmimetype.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qobjectcleanuphandler.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qoperatingsystemversion.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qparallelanimationgroup.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpauseanimation.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpermissions.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qplugin.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpointer.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpluginloader.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qprocess.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qpropertyanimation.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qvariantanimation.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qqueue.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qrandom.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qreadwritelock.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qrect.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsize.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qresource.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsavefile.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qscopedvaluerollback.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsemaphore.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsequentialanimationgroup.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsequentialiterable.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsettings.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsharedmemory.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtipccommon.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsignalmapper.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsimd.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsocketnotifier.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsortfilterproxymodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstack.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstandardpaths.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstaticlatin1stringmatcher.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstorageinfo.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qstringlistmodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qsystemsemaphore.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtcoreversion.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtemporarydir.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtemporaryfile.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtextboundaryfinder.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qthreadstorage.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtimeline.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtmocconstants.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtranslator.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtransposeproxymodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qtsymbolmacros.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qurlquery.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qvarianthash.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QHash \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QVariant \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QString \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qvariantlist.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QList \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qvariantmap.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QMap \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qvector.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qwaitcondition.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QDeadlineTimer \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qwineventnotifier.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qxmlstream.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/qxpfunctional.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtguiglobal.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtgui-config.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtguiexports.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qabstractfileiconprovider.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qicon.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpixmap.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpaintdevice.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qwindowdefs.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qcolor.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qrgb.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qrgba64.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qimage.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpixelformat.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtransform.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpolygon.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qregion.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qabstracttextdocumentlayout.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextlayout.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qevent.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qeventpoint.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qvector2d.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qvectornd.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpointingdevice.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qinputdevice.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qscreen.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QRect \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QSize \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QSizeF \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/QTransform \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qscreen_platform.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qguiapplication.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qinputmethod.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qguiapplication_platform.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qkeysequence.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qglyphrun.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qrawfont.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qfont.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qfontdatabase.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextcursor.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextdocument.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextformat.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qbrush.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpen.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextoption.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpalette.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qaccessible.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qaccessible_base.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qaccessiblebridge.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qaccessibleobject.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qaccessibleplugin.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qaction.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qactiongroup.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qbackingstore.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qwindow.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QEvent \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtCore/QMargins \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qsurface.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qsurfaceformat.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qcursor.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qbitmap.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qclipboard.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qcolorspace.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qcolortransform.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qdesktopservices.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qdrag.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qfilesystemmodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qfontinfo.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qfontvariableaxis.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qfontmetrics.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qgenericmatrix.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qgenericplugin.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qgenericpluginfactory.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qiconengine.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qiconengineplugin.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qimageiohandler.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qimagereader.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qimagewriter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qmatrix4x4.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qvector3d.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qvector4d.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qquaternion.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qmovie.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qoffscreensurface.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qoffscreensurface_platform.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qopengl.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qopenglext.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qopenglcontext.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/QSurfaceFormat \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qopenglcontext_platform.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qopenglextrafunctions.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qopenglfunctions.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpagedpaintdevice.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpagelayout.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpagesize.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpageranges.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpaintdevicewindow.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/QWindow \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/QPaintDevice \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpaintengine.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpainter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpainterpath.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpainterstateguard.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpdfoutputintent.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpdfwriter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpicture.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qpixmapcache.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qrasterwindow.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/QPaintDeviceWindow \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qrgbafloat.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qsessionmanager.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qshortcut.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qstandarditemmodel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qstatictext.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qstylehints.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qsyntaxhighlighter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextobject.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextdocumentfragment.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextdocumentwriter.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtextlist.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtexttable.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qtguiversion.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qundogroup.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qundostack.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtGui/qvalidator.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/QApplication \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qapplication.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qtwidgetsglobal.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qtwidgets-config.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qtwidgetsexports.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/QLabel \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qlabel.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qframe.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qwidget.h \
+		/nix/store/cp30fin83aimfljxb5988bkn2micgi04-qtbase-6.9.0/include/QtWidgets/qsizepolicy.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hello.o hello.cpp
 
 ####### Install

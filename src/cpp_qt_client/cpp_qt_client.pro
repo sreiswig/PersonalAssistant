@@ -5,7 +5,6 @@
 SOURCES += hello.cpp
 TEMPLATE = app
 
-RESOURCES += qml.qrc
 QT += qml
 TARGET = demo
 isEmpty(PREFIX) {
@@ -14,3 +13,8 @@ isEmpty(PREFIX) {
 
 target.path = $$PREFIX/bin
 INSTALLS += target
+
+INCLUDEPATH += .
+
+QT += gui
+QT += widgets
