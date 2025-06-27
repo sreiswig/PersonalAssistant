@@ -3,10 +3,12 @@ from typing import assert_type
 import requests
 from PySide6 import QtCore, QtWidgets
 from microphone import Microphone
+from text_to_voice_model import TextToVoiceModel
+from voice_to_text_model import VoiceToTextModel
 
 
 class MyWidget(QtWidgets.QWidget):
-    def __init__(self, config, voiceToText, textToVoice):
+    def __init__(self, config, voiceToText: VoiceToTextModel, textToVoice: TextToVoiceModel):
         super().__init__()
         # Init configs
         self.server = config["server"]
@@ -55,7 +57,7 @@ class MyWidget(QtWidgets.QWidget):
         self.voiceButton = QtWidgets.QPushButton("\N{MICROPHONE}")
         self.voiceButton.clicked.connect(self.speak)
         self.input_layout.addWidget(self.voiceButton)
-        if (self.voiceToText is None):
+        if (self.voiceToText.is_initialized() == False):
             self.textEdit.append("GPU not found on device, speech capabilities are not be enabled")
             self.voiceButton.setEnabled(False)
 
@@ -70,7 +72,7 @@ class MyWidget(QtWidgets.QWidget):
             self.textEdit.append(f"You: {user_input}")
             self.inputField.clear()
 
-    def changeModel(self, model_name):
+    def changeModel(self, model_name: str):
         self.textEdit.clear()
         self.textEdit.append(f"Changing model to: {model_name}")
         self.current_model_name = model_name
@@ -96,7 +98,7 @@ class MyWidget(QtWidgets.QWidget):
 
 
 class App:
-    def __init__(self, config, voiceToText, textToVoice):
+    def __init__(self, config, voiceToText: VoiceToTextModel, textToVoice: TextToVoiceModel):
         app = QtWidgets.QApplication([])
         window = MyWidget(config, voiceToText, textToVoice)
         window.resize(1200, 1200)
