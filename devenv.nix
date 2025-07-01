@@ -32,6 +32,7 @@ in
     pkgs.kdePackages.kirigami
     pkgs.wayland
     pkgs.flutter
+    pkgs.bandit
   ];
 
   env = {

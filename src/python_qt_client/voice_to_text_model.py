@@ -1,7 +1,7 @@
 import torch
-from torch.cuda import is_available
-from transformers.pipelines import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
-
+from transformers.pipelines import pipeline
+from transformers.models.auto.processing_auto import AutoProcessor
+from transformers.models.auto.modeling_auto import AutoModelForSpeechSeq2Seq
 
 class VoiceToTextModel:
     def __init__(self, config):
@@ -13,7 +13,7 @@ class VoiceToTextModel:
                 low_cpu_mem_usage=True,
                 attn_implementation="sdpa",
             )
-            self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+            self.device = "cuda:0"
             self.model.to(self.device)
             self.processor = AutoProcessor.from_pretrained(config["model"])
             self.pipe = pipeline(
