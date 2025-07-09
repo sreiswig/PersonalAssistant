@@ -38,3 +38,7 @@ async def get_available_models():
 async def predict(x: str):
     result = model["text"](x)
     return {"result": result}
+
+@app.get("/hello")
+def hello_world():
+    return {"Hello World"}
