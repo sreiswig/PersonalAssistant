@@ -2,10 +2,10 @@ import tomllib
 
 from contextlib import asynccontextmanager
 from typing import List
-from .models import GoogleAIStudioModel
-from .models import HuggingFaceModel
-from .config import ServerSettings
-from .models import ModelRegistry
+from models import GoogleAIStudioModel
+from models import HuggingFaceModel
+from config import ServerSettings
+from models import ModelRegistry
 
 import uvicorn
 from fastapi import FastAPI
