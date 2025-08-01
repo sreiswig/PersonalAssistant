@@ -3,6 +3,7 @@ from transformers.pipelines import pipeline
 from transformers.models.auto.processing_auto import AutoProcessor
 from transformers.models.auto.modeling_auto import AutoModelForSpeechSeq2Seq
 
+
 class VoiceToTextModel:
     def __init__(self, config):
         if torch.cuda.is_available():

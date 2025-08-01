@@ -8,7 +8,9 @@ from voice_to_text_model import VoiceToTextModel
 
 
 class MyWidget(QtWidgets.QWidget):
-    def __init__(self, config, voiceToText: VoiceToTextModel, textToVoice: TextToVoiceModel):
+    def __init__(
+        self, config, voiceToText: VoiceToTextModel, textToVoice: TextToVoiceModel
+    ):
         super().__init__()
         # Init configs
         self.server = config["server"]
@@ -57,8 +59,10 @@ class MyWidget(QtWidgets.QWidget):
         self.voiceButton = QtWidgets.QPushButton("\N{MICROPHONE}")
         self.voiceButton.clicked.connect(self.speak)
         self.input_layout.addWidget(self.voiceButton)
-        if (self.voiceToText.is_initialized() == False):
-            self.textEdit.append("GPU not found on device, speech capabilities are not be enabled")
+        if self.voiceToText.is_initialized() == False:
+            self.textEdit.append(
+                "GPU not found on device, speech capabilities are not be enabled"
+            )
             self.voiceButton.setEnabled(False)
 
         # Add Horizontal layout input widget
@@ -98,7 +102,9 @@ class MyWidget(QtWidgets.QWidget):
 
 
 class App:
-    def __init__(self, config, voiceToText: VoiceToTextModel, textToVoice: TextToVoiceModel):
+    def __init__(
+        self, config, voiceToText: VoiceToTextModel, textToVoice: TextToVoiceModel
+    ):
         app = QtWidgets.QApplication([])
         window = MyWidget(config, voiceToText, textToVoice)
         window.resize(1200, 1200)

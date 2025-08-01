@@ -26,7 +26,7 @@ def main():
     config = get_config()
     voiceToText = None
     textToVoice = None
-    if (torch.cuda.is_available()):
+    if torch.cuda.is_available():
         voiceToText = VoiceToTextModel(config["voicetotext"])
         textToVoice = TextToVoiceModel(config["texttovoice"])
     App(config, voiceToText, textToVoice)
