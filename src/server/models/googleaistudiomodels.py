@@ -1,6 +1,6 @@
 from google import genai
 
-from .abstract_llm import AbstractLLM
+from abstractllm import AbstractLLM
 
 
 class GoogleAIStudioModel(AbstractLLM):
