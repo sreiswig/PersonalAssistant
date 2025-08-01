@@ -20,7 +20,6 @@ async def lifespan(app: FastAPI):
     # Should start thinking about logging or something
     model = HuggingFaceModel(config.llm_config)
     yield
-    
 
 
 app = FastAPI(lifespan=lifespan)
@@ -30,14 +29,17 @@ app = FastAPI(lifespan=lifespan)
 def read_root():
     return {"Hello AIServer"}
 
+
 @app.get("/model_menu")
 async def get_available_models():
     return available_models
+
 
 @app.post("/predict")
 async def predict(x: str):
     result = model["text"](x)
     return {"result": result}
+
 
 @app.get("/hello")
 def hello_world():

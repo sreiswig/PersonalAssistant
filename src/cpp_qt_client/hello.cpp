@@ -1,5 +1,3 @@
 #include <QTextStream>
 
-int main() {
-  QTextStream
-}
+int main() { QTextStream }
