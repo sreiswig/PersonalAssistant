@@ -1,7 +1,6 @@
 import torch
 from transformers import AutoProcessor, AutoModel
 
-
 class TextToVoiceModel:
     def __init__(self, config):
         self.model_id = config["model"]
@@ -9,7 +8,6 @@ class TextToVoiceModel:
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.processor = AutoProcessor.from_pretrained(self.model_id)
         self.model = AutoModel.from_pretrained(self.model_id)
-        self.model = self.model.to_bettertransformer()
         self.model.to(self.device)
 
     def run(self, input):
