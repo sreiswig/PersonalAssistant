@@ -1,7 +1,6 @@
 import tomllib
 import torch
 import argparse
-from microphone import Microphone
 from voicetotextmodel import VoiceToTextModel
 from texttovoicemodel import TextToVoiceModel
 from gui import App

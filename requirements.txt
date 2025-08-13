@@ -21,3 +21,4 @@ grpcio-tools
 pydantic-settings
 pytest
 black
+opencv-python

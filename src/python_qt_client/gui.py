@@ -3,8 +3,8 @@ from typing import assert_type
 import requests
 from PySide6 import QtCore, QtWidgets
 from microphone import Microphone
-from text_to_voice_model import TextToVoiceModel
-from voice_to_text_model import VoiceToTextModel
+from texttovoicemodel import TextToVoiceModel
+from voicetotextmodel import VoiceToTextModel
 
 
 class MyWidget(QtWidgets.QWidget):
