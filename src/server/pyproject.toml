@@ -1,4 +1,4 @@
 [texttotext]
 type = "local"
 distributor = "huggingface"
-model = "openai-community/gpt2"
+model = "openai/gpt-oss-20b"
