@@ -1,5 +1,6 @@
 import sys
 from typing import assert_type
+from PySide6.QtGui import QKeySequence, QShortcut
 import requests
 from PySide6 import QtCore, QtWidgets
 from microphone import Microphone
@@ -69,6 +70,8 @@ class MyWidget(QtWidgets.QWidget):
         self.input_widget = QtWidgets.QWidget()
         self.input_widget.setLayout(self.input_layout)
         self.main_layout.addWidget(self.input_widget)
+
+        shortcut = QShortcut(QKeySequence(tr("Ctrl+i", "action")), parent)
 
     def handleInput(self):
         user_input = self.inputField.text().strip()
