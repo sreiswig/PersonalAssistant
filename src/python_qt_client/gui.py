@@ -71,8 +71,6 @@ class MyWidget(QtWidgets.QWidget):
         self.input_widget.setLayout(self.input_layout)
         self.main_layout.addWidget(self.input_widget)
 
-        shortcut = QShortcut(QKeySequence(tr("Ctrl+i", "action")), parent)
-
     def handleInput(self):
         user_input = self.inputField.text().strip()
         if user_input:
