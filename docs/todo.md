@@ -1,0 +1,4 @@
+- [ ] create the server llm endpoint
+- [ ] improve the client voice interaction
+- [ ] create client side tests
+- [ ] model the client settings
