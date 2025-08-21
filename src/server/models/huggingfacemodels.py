@@ -1,5 +1,5 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
-from abstractllm import AbstractLLM
+from .abstractllm import AbstractLLM
 
 
 class HuggingFaceModel:

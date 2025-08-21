@@ -1,3 +1,3 @@
-from huggingfacemodels import HuggingFaceModel
-from googleaistudiomodels import GoogleAIStudioModel
-from modelmenu import ModelRegistry
+from .huggingfacemodels import HuggingFaceModel
+from .googleaistudiomodels import GoogleAIStudioModel
+from .modelmenu import ModelRegistry
