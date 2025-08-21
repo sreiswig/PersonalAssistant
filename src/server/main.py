@@ -1,4 +1,5 @@
 import tomllib
+import torch
 
 from contextlib import asynccontextmanager
 from typing import List
@@ -11,20 +12,17 @@ import uvicorn
 from fastapi import FastAPI
 
 available_models = ["DistilBert"]
-models = {}
+model_cache = {}
+current_model = None
 
-def load_default_model():
-    config = ServerSettings.llm_config
-    default_model = {}
-    return default_model
-
-def load_model(model: str):
-    return model
+def load_model(model):
+    global current_model
+    current_model = model
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Should start thinking about logging or something, langsmith?
-    models = load_default_model()
+    load_model("gpt2")
     yield
 
 
@@ -43,11 +41,11 @@ async def get_available_models():
 @app.post("/change_model")
 async def change_model(model: str):
     load_model(model)
-    return ""
+    return {"message": f"Changed to {model}"}
 
 @app.post("/predict")
 async def predict(x: str):
-    result = models["text"](x)
+    result = "Not Implemented yet"
     return {"result": result}
 
 
