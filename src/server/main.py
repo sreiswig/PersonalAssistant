@@ -22,7 +22,7 @@ def load_model(model):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Should start thinking about logging or something, langsmith?
-    load_model("gpt2")
+    load_model(ServerSettings.llm_config.model_name)
     yield
 
 
