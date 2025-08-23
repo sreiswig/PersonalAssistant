@@ -1,0 +1,7 @@
+graph TD
+    A[Server Start] --> B(Load Default LLM from settings)
+    B --> C(Wait For Requests)
+    C --> D(Get Requests)
+    D --> E{LangGraph Decides how to parse}
+    E --> F(Tool Use)
+    E --> G(Chat)
