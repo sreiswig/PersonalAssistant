@@ -15,6 +15,7 @@ class MyWidget(QtWidgets.QWidget):
         super().__init__()
         # Init configs
         self.server = config["server"]
+        self.conversation_state = False
 
         # Init microphone and audio
         self.microphone = Microphone(config["microphone"])
@@ -87,12 +88,14 @@ class MyWidget(QtWidgets.QWidget):
             self.textEdit.append(f"Error initializing model {model_name}")
 
     def speak(self):
-        audio = self.microphone.listen()
-        text = self.voiceToText.run(audio)
-        try:
-            self.textEdit.append(text)
-        except Exception as e:
-            self.textEdit.append("An Error Occured during speak call")
+        self.conversation_state = not self.conversation_state
+        while self.conversation_state:
+            audio = self.microphone.listen()
+            text = self.voiceToText.run(audio)
+            try:
+                self.textEdit.append(text)
+            except Exception as e:
+                self.textEdit.append("An Error Occured during speak call")
 
     def test(self):
         try:
